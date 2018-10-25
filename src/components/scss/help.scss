@@ -1,0 +1,130 @@
+
+
+$pink: #FFD8CB;
+$dark-pink: #fbc5b1;
+$blue: #567bb0;
+$light-blue : #B8D6F0;
+$black:  #333333;
+$light-gray: #DFE0E5;
+$gray: #999999;
+$tranasparent: transparent;
+
+
+
+$break-small: 414px;
+$break-large: 1240px;
+
+
+
+
+@mixin respond-to($media) {
+  @if $media == mobile {
+      @media only screen and (max-width: $break-small) { @content; }
+    }
+  @else if $media == desktop {
+    @media only screen and (min-width: $break-small + 1) { @content; }
+  }
+}
+
+
+@mixin size($num: null null){
+  @if length($num) == 2{
+    width: nth($num,1);
+    height: nth($num,2);
+  }
+  @if length($num) == 1{
+    width: nth($num,1);
+    height: nth($num,1);
+  }
+}
+
+
+.clearfix::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+
+$basic-font-size : 16 !default ;
+
+@function deUnit($unit){
+  @return $unit/($unit*0+1);
+}
+
+@function px2rem($px){
+  @return (deUnit($px)/deUnit($basic-font-size))+rem;
+}
+
+@function px2vw($px, $container-width){
+  @return (deUnit($px)/deUnit($container-width/100))+vw;
+}
+
+
+@mixin transition($props: all 0.3s){
+  -webkit-transition: $props;
+  -moz-transition: $props;
+  transition: $props;
+}
+
+@mixin transform($props: scale(1.1)){
+  -webkit-transform: $props;
+  -moz-transform: $props;
+  transform: $props;
+}
+
+
+
+
+
+@mixin flexboxJustify($props: center){
+  display: -webkit-flex;
+  display: flex;
+  justify-content: $props;
+  -webkit-justify-content: $props;
+  -ms-justify-content: $props;
+}
+
+@mixin flexboxWrap($props: nowrap){
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: $props;
+  -webkit-flex-wrap: $props;
+  -ms-flex-wrap: $props;
+}
+
+@mixin flexboxAlign($props: space-between){
+  display: -webkit-flex;
+  display: flex;
+  align-content: $props;
+  -webkit-align-content: $props;
+  -ms-align-content: $props;
+}
+
+@mixin flexboxDirection($props: row){
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: $props;
+  -webkit-flex-direction: $props;
+  -ms-flex-direction: $props;
+}
+
+@mixin font-face($style-name, $file, $family) {
+  $filepath: "./assets/fonts/" + $family + "/" + $file;
+  @font-face {
+      font-family: "#{$style-name}";
+      src: url($filepath + ".eot");
+      src: url($filepath + ".eot?#iefix") format('embedded-opentype'), url($filepath + ".woff") format('woff'), url($filepath + ".ttf")  format('truetype'), url($filepath + ".svg#" + $style-name + "") format('svg');
+  }
+  // %#{$style-name} {
+  //     font: {
+  //         @if $category != "" {
+  //             family: "#{$style-name}", #{$category};
+  //         }
+  //         @else {
+  //             family: "#{$style-name}";
+  //             weight: normal;
+  //         }
+  //     }
+  // }
+}

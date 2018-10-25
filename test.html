@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Hello Vue</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+        <li v-for="poet in poetrysFilter" v-bind:key="poet.id">
+            {{poet.title}}
+        </li>
+    </ul>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js"></script>
+<script src=”https://unpkg.com/axios/dist/axios.min.js”></script>
+<script type="text/javascript">
+export default ({
+    el: '#app',
+    data: {
+      poetrys:[],
+    },
+    methods: {
+      getData: function(){
+        const baseURI = 'https://jsonplaceholder.typicode.com';
+        axios.get(`${baseURI}/photos`)
+        .then((result) => {
+          this.poetrys = result.data
+         
+          console.log(this.poetrys)
+        })
+      },
+    },
+    computed:{
+    poetrysFilter (){
+      return this.poetrys.filter(function(item){
+        return item.id < 6
+      })
+    }
+  },
+    mounted: function(){
+     this.getData()
+  }
+});
+</script>
+<style type="text/css">
+   
+</style>
+</html>

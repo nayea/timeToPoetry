@@ -1,0 +1,228 @@
+
+@import './help.scss'
+
+
+
+// 월간몇시, 주목몇시, 읽는시간, 지금몇시(메인) 스타일
+.wrapper
+  padding-top: px2vw(130px, $break-large)
+  padding-left: px2vw(120px, $break-large)
+  padding-right: px2vw(120px, $break-large)
+  +flexboxDirection(row-reverse)
+
+// .main-height
+//   height: 100vh
+
+#mainMonthly,#landing, #mainAttention, #mainNews, #mainVoucher, #mainQuestion, #mainReading, #whatIsTimeToPoetry, #mainQuestionWriting,#mypage
+  height: 100vh
+
+#signUp
+  height: 110vh
+
+
+.content-wrapper
+  // top: px2vw(130px, $break-large)
+  position: relative
+  flex: 1 1 90%
+  -ms-flex: 1 1 90%
+  -webkit-flex: 1 1 90%
+
+.menu-title
+  flex: 1 1 10%
+  -ms-flex: 1 1 10%
+  -webkit-flex: 1 1 10%
+  position: relative
+  color: #fff
+  text-shadow: -1px 0 $blue, 0 1px $blue, 1px 0 $blue, 0 -1px $blue
+  +respond-to(desktop)
+    font-size: px2rem(50px)
+    top: px2vw(300px, $break-large)
+
+
+.menu-title::after
+  content: ')'
+  display: inline-block
+  position: absolute
+  writing-mode: lr-tb
+
+
+.menu-title span
+  position: relative
+  display: inline-block
+
+
+.main-title
+  color: $blue
+  font-size: px2vw(45px, $break-large)
+  display: inline-block
+  vertical-align: top
+
+
+
+.title, .titleAfter
+  position: relative
+  color: #fff
+  text-shadow: -1px 0 $blue, 0 1px $blue, 1px 0 $blue, 0 -1px $blue
+  letter-spacing: -2px
+  +respond-to(desktop)
+    font-size: px2vw(50px, $break-large)
+
+
+
+
+.title::before
+  content: '('
+  position: absolute
+  left: px2rem(-26px)
+
+.reload-btn, .more-btn
+  color: $blue
+  // text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black
+  background-color: transparent
+  position: absolute
+  cursor: pointer
+  font-weight: 700
+  +respond-to(desktop)
+    font-size: px2vw(15px, $break-large)
+
+
+
+//시인,시 스타일
+.border-circle
+  content: ''
+  display: block
+  border-radius: 50%
+  border: 1px solid $black
+  background-color: $pink
+  +respond-to(desktop)
+    +size(px2vw(68px, $break-large))
+    font-size: px2vw(50px, $break-large)
+
+.circle
+  display: block
+  border-radius: 50%
+  background-color: $pink
+  +respond-to(desktop)
+    +size(px2vw(28px, $break-large))
+
+.content-font,.content-font2,.content-font3
+  position: relative
+  color: $black
+  font-weight: 700
+  vertical-align: middle
+  +respond-to(desktop)
+    font-size: px2vw(20px, $break-large)
+
+
+.content-number
+  color: #fff
+  font-weight: 700
+  text-shadow: -1px 0 $blue, 0 1px $blue, 1px 0 $blue, 0 -1px $blue
+  +respond-to(desktop)
+    font-size: px2vw(32px, $break-large)
+
+// .content-image
+//   position: absolute
+//   top: 0
+//   left: 0
+//   box-shadow: 10px 10px 20px $pink
+//   +respond-to(desktop)
+//     +size(px2vw(290px, $break-large))
+//     left: px2vw(-460px, $break-large)
+//     top: px2vw(150px, $break-large)
+
+.my-active-class
+  .border-circle
+    background-color: $blue
+    color: $blue
+
+.my-active-class
+  .content-number
+    background-color: $blue
+    color: $blue
+
+.my-active-class
+  .circle
+    background-color: $blue
+    color: $blue
+
+
+
+
+
+[class^="icon-"], [class*=" icon-"]
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important
+  speak: none
+  font-style: normal
+  font-weight: normal
+  font-variant: normal
+  text-transform: none
+  line-height: 1
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+
+
+
+.icon-download::before
+  content: "\e960"
+
+.icon-play3::before
+  content: "\ea1c"
+
+.icon-pause2::before
+  content: "\ea1d"
+
+.icon-stop2::before
+  content: "\ea1e"
+
+.icon-volume-high::before
+  content: "\ea26"
+
+.icon-volume-mute2::before
+  content: "\ea2a"
+
+.icon-paragraph-justify::before
+  content: "\ea7a"
+
+.icon-spinner11::before
+  content: "\e984"
+
+
+.icon-spinner10::before
+  content: "\e983"
+
+
+// 시간. 소식
+
+.mainNewsContent ul
+  +respond-to(desktop)
+    margin-top: px2vw(39px, $break-large)
+    padding-left: px2vw(472px, $break-large)
+
+
+.newsContent
+  +respond-to(desktop)
+    margin-bottom: px2vw(15px, $break-large)
+
+
+.circle-w, .circle-w-r, .circle-w-c
+  display: inline-block
+  background: #fff
+  border-radius: 50px
+  vertical-align: middle
+  position: relative
+  top: 0
+  +respond-to(desktop)
+    +size(px2vw(28px, $break-large))
+    left: px2vw(15px, $break-large)
+
+
+.content-font
+  display: inline-block
+  font-size: px2rem(20px)
+  vertical-align: middle
+  font-weight: 700
